@@ -90,6 +90,13 @@
               </div>
               <nav class="theme-account-nav">
                 <ul class="theme-account-nav-list">
+                  @if(Auth::user()->hasRole('employee') == true || Auth::user()->hasRole('manager') == true)
+                  <li>
+                    <a href="{{url('admin/index')}}">
+                      <i class="fa fa-user-o"></i>จัดการหลังบ้าน
+                    </a>
+                  </li>
+                  @endif
                   <li>
                     <a href="{{url('logout')}}">
                       <i class="fa fa-lock"></i>ออกจากระบบ

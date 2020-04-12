@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\shop;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -118,6 +119,8 @@ class AdminController extends Controller
     }
 
     public function edit_shop($id){
+
+      //dd(Auth::user()->hasRole('employee'));
 
       $file = DB::table('folder_files')
           ->where('shop_id', $id)
