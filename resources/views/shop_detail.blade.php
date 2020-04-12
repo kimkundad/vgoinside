@@ -222,6 +222,7 @@
                       <div class=" _pb-0">
 
                         <div class="theme-account-history">
+                          <div class="table-responsive ">
             <table class="table">
               <thead>
                 <tr>
@@ -269,6 +270,7 @@
 
               </tbody>
             </table>
+          </div>
           </div>
 
                       </div>
