@@ -164,32 +164,20 @@
 
                   @if(isset($shop))
                   @foreach($shop as $u)
-                  <div class="col-md-6 ">
+              
 
-                    <div class="theme-search-results-item _mb-10 theme-search-results-item-">
-                      <div class="theme-search-results-item-preview">
-                        <a class="theme-search-results-item-mask-link" href="{{ url('admin/edit_shop/'.$u->id) }}"></a>
-                        <div class="row" data-gutter="20">
-                          <div class="col-md-4 ">
-                            <div class="theme-search-results-item-img-wrap">
-                              <img class="theme-search-results-item-img" src="{{ url('img/shop/'.$u->shop_image) }}" alt="{{ $u->shop_name }}t" title="{{ $u->shop_name }}"/>
-                            </div>
-                          </div>
-                          <div class="col-md-8 ">
-                            <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">{{ $u->shop_name }}</h5>
-                            <div class="theme-search-results-item-car-location">
-                              <div class="theme-search-results-item-price">
-                                <p class="theme-search-results-item-price-tag">{{ number_format($u->view) }}</p>
-                                <p class="theme-search-results-item-price-sign">ยอดเข้าดู</p>
-                              </div>
-                              <a class="btn btn-primary-inverse  theme-search-results-item-price-btn" href="{{ url('admin/edit_shop/'.$u->id) }}">ดูข้อมูลเพิ่ม</a>
-                            </div>
-                          </div>
+
+                   <div class="col-md-4 ">
+                      <div class="banner _h-40vh _br-4 _bsh-xl _bsh-light banner-animate banner-animate-mask-in banner-animate-zoom-in banner-animate-slow">
+                        <div class="banner-bg" style="background-image:url({{ url('img/shop/'.$u->shop_image) }});"></div>
+                        <div class="banner-mask"></div>
+                        <a class="banner-link" href="{{ url('admin/edit_shop/'.$u->id) }}"></a>
+                        <div class="banner-caption _bg-w _p-20 _w-a banner-caption-bottom banner-caption-dark">
+                          <h5 class="banner-title">{{ $u->shop_name }}</h5>
+                          <p class="banner-subtitle _mt-5 _fw-n">{{ number_format($u->view) }} ยอดเข้าดู</p>
                         </div>
                       </div>
                     </div>
-
-                   </div>
                    @endforeach
                    @endif
 

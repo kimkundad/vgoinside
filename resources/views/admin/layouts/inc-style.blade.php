@@ -19,6 +19,12 @@
     font-family: 'Prompt', sans-serif;
 
 }
+.banner-title {
+    font-size: 19px;
+    font-weight: normal;
+    font-family: 'Prompt', sans-serif;
+    margin: 0;
+}
 .theme-search-area-options-list .btn.active:before, .theme-search-area-options-list .btn:focus:before, .theme-search-area-options-list .btn:active:before {
     background: #fff;
     -webkit-box-shadow: 0 0 0 1px #0093d2;
