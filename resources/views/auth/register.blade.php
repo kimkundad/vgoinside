@@ -10,6 +10,11 @@
 @section('stylesheet')
 
 <style>
+.theme-hero-area-mask-strong {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=66)";
+    filter: alpha(opacity=66);
+}
 .theme-page-header-title {
     font-size: 30px;
     margin-top: 0;
