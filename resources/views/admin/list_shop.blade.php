@@ -91,6 +91,11 @@
               <nav class="theme-account-nav">
                 <ul class="theme-account-nav-list">
                   <li>
+                    <a href="{{url('/')}}">
+                      <i class="fa fa-user-o"></i>ไปหน้าบ้าน
+                    </a>
+                  </li>
+                  <li>
                     <a href="{{url('logout')}}">
                       <i class="fa fa-lock"></i>ออกจากระบบ
                     </a>
