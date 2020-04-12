@@ -28,7 +28,7 @@ class ApiController extends Controller
        $package->user_id = Auth::user()->id;
        $package->save();
 
-       if (sizeof($gallary) > 0) {
+       if (is_array($gallary) && sizeof($gallary) > 0) {
         for ($i = 0; $i < sizeof($gallary); $i++) {
           $path = 'img/folder_image/';
           $filename = time().rand(100000,999999)."-.".$gallary[$i]->guessExtension();;
