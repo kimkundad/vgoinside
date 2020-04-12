@@ -148,7 +148,11 @@
 
               <div class="theme-search-results">
 
-                <h1 class="theme-account-page-title">ข้อมูลร้าน {{ $objs->shop_name }}</h1>
+                <h1 class="theme-account-page-title">ข้อมูลร้าน {{ $objs->shop_name }}
+                @if(Auth::user()->hasRole('manager') == true)
+                <a href="{{ url('api/del_my_shop/'.$objs->id.'/'.$objs2->PROVINCE_ID) }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger " style="float:right" >ลบ</a>
+                @endif
+              </h1>
 
                 <div class="theme-account-preferences" >
 

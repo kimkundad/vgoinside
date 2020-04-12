@@ -88,6 +88,86 @@ class ApiController extends Controller
 
     }
 
+    public function del_my_shop($id = 0 , $prov =0){
+
+
+      $obj1 = DB::table('shops')
+          ->where('id', $id)
+          ->first();
+
+          $check = DB::table('folders')
+              ->where('shop_id', $id)
+              ->count();
+
+              if($check > 0){
+
+                $folder = DB::table('folders')
+                    ->where('shop_id', $id)
+                    ->get();
+
+                foreach($folder as $u){
+
+                  $obj2 = DB::table('folder_images')
+                      ->where('folder_id', $u->id)
+                      ->get();
+
+                      if(isset($obj2)){
+                        foreach($obj2 as $j){
+
+                          $file_path = 'img/folder_image/'.$j->image;
+                          unlink($file_path);
+
+                          DB::table('folder_images')
+                          ->where('id', $j->id)
+                          ->delete();
+
+                        }
+                      }
+
+                      DB::table('folders')
+                      ->where('id', $u->id)
+                      ->delete();
+
+                }
+//////////////////////////////////////////////////
+              }
+
+
+              $check2 = DB::table('folder_files')
+                  ->where('shop_id', $id)
+                  ->count();
+
+            if($check2 > 0){
+
+              $obj3 = DB::table('folder_files')
+                  ->where('shop_id', $id)
+                  ->get();
+
+                  foreach($obj3 as $k){
+
+                    $file_path = 'img/folder_file/'.$k->image_file;
+                    unlink($file_path);
+
+                    DB::table('folder_files')
+                    ->where('id', $k->id)
+                    ->delete();
+
+                  }
+
+            }
+
+            $file_path = 'img/shop/'.$obj1->shop_image;
+            unlink($file_path);
+
+            DB::table('shops')
+            ->where('id', $id)
+            ->delete();
+
+
+
+       return redirect(url('admin/index'))->with('del_shop','คุณทำการแก้ไขอสังหา สำเร็จ');
+    }
+
     public function del_my_folder($folder = 0 , $shop =0){
 
       $objs = DB::table('folder_images')

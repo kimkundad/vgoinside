@@ -151,5 +151,14 @@
 
 @section('scripts')
 
+<script>
+@if ($message = Session::get('del_shop'))
+
+    swal("ระบบทำการลบข้อมูลร้านค้าให้เรียบร้อยแล้ว");
+
+@endif
+</script>
+
+
 
 @stop('scripts')

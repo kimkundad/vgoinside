@@ -41,8 +41,10 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
   Route::get('admin/search_shop', 'AdminController@search_shop')->name('search_shop');
 
   Route::get('admin/folder/{id}', 'AdminController@folder')->name('folder');
+
   Route::get('api/del_image_folder/{id}/{folder}', 'ApiController@del_image_folder')->name('del_image_folder');
   Route::get('api/del_my_folder/{folder}/{shop}', 'ApiController@del_my_folder')->name('del_my_folder');
+  Route::get('api/del_my_shop/{id}/{prov}', 'ApiController@del_my_shop')->name('del_my_shop');
 
 
   Route::post('/api/add_all_image', 'ApiController@add_all_image')->name('add_all_image');

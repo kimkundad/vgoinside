@@ -185,7 +185,6 @@ class HomeController extends Controller
               ->get();
 
               $obj3 = DB::table('province')
-
                   ->where('GEO_ID', 1)
                   ->get();
 
