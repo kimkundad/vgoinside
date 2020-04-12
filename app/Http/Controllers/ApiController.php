@@ -188,6 +188,51 @@ class ApiController extends Controller
          return redirect(url('admin/edit_shop/'.$request['shop_id']))->with('add_success_file','คุณทำการแก้ไขอสังหา สำเร็จ');
     }
 
+    public function edit_my_shop(Request $request){
+        $image = $request->file('file');
+
+        if($image == null){
+
+          $package = shop::find($request['shop_id']);
+          $package->shop_name = $request['shop_name'];
+          $package->description = $request['description'];
+          $package->user_id = Auth::user()->id;
+          $package->save();
+
+        }else{
+
+          $objs = DB::table('shops')
+              ->where('id', $request['shop_id'])
+              ->first();
+
+              $file_path = 'img/shop/'.$objs->shop_image;
+              unlink($file_path);
+
+          $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+            $img = Image::make($image->getRealPath());
+            $img->resize(800, 800, function ($constraint) {
+            $constraint->aspectRatio();
+          })->save('img/shop/'.$input['imagename']);
+
+          $package = shop::find($request['shop_id']);
+          $package->shop_name = $request['shop_name'];
+          $package->description = $request['description'];
+          $package->shop_image = $input['imagename'];
+          $package->user_id = Auth::user()->id;
+          $package->save();
+
+        }
+
+        return response()->json([
+                  'data' => [
+                    'status' => 200,
+                    'msg' => 'Add data success',
+                    'data_id' => $request['shop_id'],
+                  ]
+                ]);
+
+    }
+
     public function add_my_shop(Request $request){
 
       $image = $request->file('file');

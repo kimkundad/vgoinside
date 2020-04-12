@@ -57,6 +57,8 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
 
   Route::get('admin/create_shop/{id}', 'AdminController@create_shop')->name('create_shop');
   Route::post('/api/add_my_shop', 'ApiController@add_my_shop')->name('add_my_shop');
+  Route::post('/api/edit_my_shop', 'ApiController@edit_my_shop')->name('edit_my_shop');
+
   Route::get('admin/edit_shop/{id}', 'AdminController@edit_shop')->name('edit_shop');
 
 });

@@ -156,6 +156,7 @@
                             <div class="form-group theme-account-preferences-item-change-form">
                               <input class="form-control" type="text" name="shop_name" id="shop_name" value="{{ $objs->shop_name }}">
                               <input class="form-control" type="hidden" name="prov_id" value="{{ $objs2->PROVINCE_ID }}">
+                              <input class="form-control" type="hidden" name="shop_id" value="{{ $objs->id }}">
                             </div>
                             <br />
 
@@ -466,7 +467,81 @@ $(document).ready(function() {
 
 @endif
 
+$(document).on('click','#btnSendData',function (event) {
+  event.preventDefault();
 
+
+  $.LoadingOverlay("show", {
+  background  : "rgba(255, 255, 255, 0.4)",
+  image       : "",
+  fontawesome : "fa fa-cog fa-spin"
+});
+
+
+  var form = $('#contactForm')[0];
+  var formData = new FormData(form);
+  var files = $('#file')[0].files[0];
+
+  formData.append('file',files);
+
+  var shop_name = document.getElementById("shop_name").value;
+  var textareaAutosize = document.getElementById("textareaAutosize").value;
+
+  console.log(formData);
+  if(shop_name == '' || textareaAutosize == ''){
+
+  swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
+
+  }else{
+
+
+    $.ajax({
+      url: "{{url('/api/edit_my_shop')}}",
+      headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+      data: formData,
+      processData: false,
+      contentType: false,
+      cache:false,
+      type: 'POST',
+      success: function (data) {
+
+      //  console.log(data.data.status)
+          if(data.data.status == 200){
+
+
+            setTimeout(function(){
+                $.LoadingOverlay("hide");
+            }, 0);
+
+            swal("สำเร็จ!", "ระบบได้ทำการเพิ่มข้อมูลสำเร็จ", "success");
+
+          setTimeout(function(){
+                window.location.replace("{{url('admin/edit_shop/')}}/"+data.data.data_id);
+          }, 3000);
+
+          }else{
+
+            setTimeout(function(){
+                $.LoadingOverlay("hide");
+            }, 500);
+
+            swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
+
+          }
+      },
+      error: function () {
+
+      }
+  });
+
+
+  }
+
+  setTimeout(function(){
+      $.LoadingOverlay("hide");
+  }, 2500);
+
+});
 
 
 </script>
