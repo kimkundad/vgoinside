@@ -1,4 +1,4 @@
-@extends('layouts.template2')
+@extends('admin.layouts.template2')
 
 @section('title')
 ยังไม่ได้ตั้งชื่อ | เว็บไซต์
@@ -59,7 +59,7 @@
     color: #9E9E9E;
 }
 .theme-account-card {
-    height: 160px;
+    height: 40vh !important;
 }
 .theme-search-results-item-preview {
     padding: 23px 20px;
@@ -104,7 +104,7 @@
                 <ul class="theme-breadcrumbs _mt-20">
                   <li>
                     <p class="theme-breadcrumbs-item-title">
-                      <a href="{{ url('/') }}">หน้าแรก {{$objs->GEO_ID}}</a>
+                      <a href="{{ url('/admin/index') }}">หน้าแรก </a>
                     </p>
                   </li>
                   <li>
@@ -147,16 +147,18 @@
 
               <div class="theme-search-results">
 
+                <h1 class="theme-account-page-title">ร้านค้าทั้งหมด</h1>
+
                 <div class="row row-col-gap" data-gutter="20">
 
                   <div class="col-md-12 ">
-                    <form class="form-horizontal" action="{{url('search_shop')}}" method="GET" enctype="multipart/form-data">
+                    <form class="form-horizontal" action="{{url('admin/search_shop')}}" method="GET" enctype="multipart/form-data">
                     <div class="row">
                       <div class="col-md-10">
                         <div class="theme-search-area-section first theme-search-area-section-curved theme-search-area-section-fade-white">
                                 <div class="theme-search-area-section-inner">
                                   <i class="theme-search-area-section-icon fa fa-search"></i>
-                                  <input class="theme-search-area-section-input " name="search" type="text" placeholder="ค้นหาร้านค้า">
+                                  <input class="theme-search-area-section-input " name="search" value="{{$search}}" type="text" placeholder="ค้นหาร้านค้า">
                                   <input  name="prov_id" value="{{ $id }}" type="hidden" >
                                 </div>
                               </div>
@@ -169,6 +171,13 @@
                     </form>
                   </div>
 
+                  <div class="col-md-4 ">
+                    <div class="theme-account-card theme-account-card-new">
+                      <a class="theme-account-card-mask-link" href="{{ url('admin/create_shop/'.$objs->PROVINCE_ID) }}"></a>
+                      <p class="theme-account-card-new-title">+ เพิ่มร้านค้าใหม่ </p>
+                    </div>
+                  </div>
+
                   @if($count > 0)
 
 
@@ -176,11 +185,13 @@
                   @if(isset($shop))
                   @foreach($shop as $u)
 
+
+
                    <div class="col-md-4 ">
                       <div class="banner _h-40vh _br-4 _bsh-xl _bsh-light banner-animate banner-animate-mask-in banner-animate-zoom-in banner-animate-slow">
                         <div class="banner-bg" style="background-image:url({{ url('img/shop/'.$u->shop_image) }});"></div>
                         <div class="banner-mask"></div>
-                        <a class="banner-link" href="{{ url('/shop_detail/'.$u->id) }}"></a>
+                        <a class="banner-link" href="{{ url('admin/edit_shop/'.$u->id) }}"></a>
                         <div class="banner-caption _bg-w _p-20 _w-a banner-caption-bottom banner-caption-dark">
                           <h5 class="banner-title">{{ $u->shop_name }}</h5>
                           <p class="banner-subtitle _mt-5 _fw-n">{{ number_format($u->view) }} ยอดเข้าดู</p>
@@ -196,10 +207,7 @@
 
                       @else
 
-                      <div class="theme-page-404 _ta-c">
-                        <h1 class="theme-page-404-title">404</h1>
-                        <p class="theme-page-404-subtitle">เสียใจด้วย, ยังไม่มีข้อมูลในส่วนนี้</p>
-                      </div>
+
 
                       @endif
 

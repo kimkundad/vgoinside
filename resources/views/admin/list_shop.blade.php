@@ -151,6 +151,26 @@
 
                 <div class="row row-col-gap" data-gutter="20">
 
+                  <div class="col-md-12 ">
+                    <form class="form-horizontal" action="{{url('admin/search_shop')}}" method="GET" enctype="multipart/form-data">
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="theme-search-area-section first theme-search-area-section-curved theme-search-area-section-fade-white">
+                                <div class="theme-search-area-section-inner">
+                                  <i class="theme-search-area-section-icon fa fa-search"></i>
+                                  <input class="theme-search-area-section-input " name="search" type="text" placeholder="ค้นหาร้านค้า">
+                                  <input  name="prov_id" value="{{ $id }}" type="hidden" >
+                                </div>
+                              </div>
+                      </div>
+                      <div class="col-md-2">
+
+                            <button type="submit" class="theme-search-area-submit _mt-0 theme-search-area-submit-no-border theme-search-area-submit-curved theme-search-area-submit-primary">ค้นหา</button>
+                        </div>
+                    </div>
+                    </form>
+                  </div>
+
                   <div class="col-md-4 ">
                     <div class="theme-account-card theme-account-card-new">
                       <a class="theme-account-card-mask-link" href="{{ url('admin/create_shop/'.$objs->PROVINCE_ID) }}"></a>
@@ -193,7 +213,7 @@
 
 
                 </div>
-
+                <div class="pagination"> {{ $shop->links() }} </div>
               </div>
 
           </div>

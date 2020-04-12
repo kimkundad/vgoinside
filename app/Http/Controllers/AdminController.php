@@ -18,7 +18,7 @@ class AdminController extends Controller
 
           $shop = DB::table('shops')
               ->where('prov_id', $id)
-              ->get();
+              ->paginate(18);
 
               $count = DB::table('shops')
                   ->where('prov_id', $id)
@@ -27,8 +27,40 @@ class AdminController extends Controller
           $data['count'] = $count;
           $data['objs'] = $obj1;
           $data['shop'] = $shop;
+          $data['id'] = $id;
 
       return view('admin.list_shop', $data);
+    }
+
+    public function search_shop(Request $request){
+
+      $this->validate($request, [
+        'search' => 'required',
+        'prov_id' => 'required'
+      ]);
+      $search = $request->get('search');
+
+      $shop = DB::table('shops')
+          ->where('prov_id', $request['prov_id'])
+          ->where('shop_name', 'like', "%$search%")
+          ->paginate(18);
+
+          $obj1 = DB::table('province')
+              ->where('PROVINCE_ID', $request['prov_id'])
+              ->first();
+
+              $count = DB::table('shops')
+                  ->where('prov_id', $request['prov_id'])
+                  ->count();
+
+          $data['count'] = $count;
+          $data['objs'] = $obj1;
+          $data['shop'] = $shop;
+          $data['id'] = $request['prov_id'];
+          $data['search'] = $search;
+
+          return view('admin.search_shop', $data);
+
     }
 
     public function create_shop($id){

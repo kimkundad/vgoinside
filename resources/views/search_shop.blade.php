@@ -156,7 +156,7 @@
                         <div class="theme-search-area-section first theme-search-area-section-curved theme-search-area-section-fade-white">
                                 <div class="theme-search-area-section-inner">
                                   <i class="theme-search-area-section-icon fa fa-search"></i>
-                                  <input class="theme-search-area-section-input " name="search" type="text" placeholder="ค้นหาร้านค้า">
+                                  <input class="theme-search-area-section-input " name="search" value="{{$search}}" type="text" placeholder="ค้นหาร้านค้า">
                                   <input  name="prov_id" value="{{ $id }}" type="hidden" >
                                 </div>
                               </div>
