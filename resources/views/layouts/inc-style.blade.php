@@ -18,6 +18,13 @@
     font-family: 'Prompt', sans-serif;
 
 }
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 10px 15px;
+    font-size: 18px;
+    line-height: 30px;
+}
 .banner-title {
     font-size: 19px;
     font-weight: normal;
