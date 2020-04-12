@@ -1,9 +1,3 @@
-<meta data-react-helmet="true" property="og:title" content="เสริมสร้างพัฒนาการของเด็กๆผ่านการทำอาหารไปกับพวกเรา Green Wondery">
-<meta data-react-helmet="true" property="og:type" content="website">
-<meta data-react-helmet="true" property="og:url" content="https://greenwondery.com?v=2">
-<meta data-react-helmet="true" property="og:description" content="Green Wondery เกิดขึ้นมาจากความตั้งใจที่จะเสริมสร้างพัฒนาการทางด้านร่างกาย,จินตนาการ และการทำงานเป็นทีม ผ่านการทำอาหารที่จะคำนึงถึงความเป็นธรรมชาติของตัวเด็กที่มักมีความสนใจและใคร่รู้กับสิ่งใหม่ๆตลอดเวลา">
-<meta data-react-helmet="true" property="og:image" content="{{ url('img/Cover_resizeimage.png') }}">
-<meta property="fb:app_id" content="518183152405113">
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet"/>
