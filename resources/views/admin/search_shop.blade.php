@@ -92,7 +92,7 @@
                 <ul class="theme-account-nav-list">
                   <li>
                     <a href="{{url('/')}}">
-                      <i class="fa fa-user-o"></i>ไปหน้าบ้าน
+                      <i class="fa fa-home"></i>ไปหน้าบ้าน
                     </a>
                   </li>
                   <li>
