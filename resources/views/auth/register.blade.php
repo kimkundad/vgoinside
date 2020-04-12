@@ -66,7 +66,7 @@ ul, li {
 
 <div class="theme-hero-area ">
       <div class="theme-hero-area-bg-wrap">
-        <div class="theme-hero-area-bg" style="background-image:url(./img/pexels-photo-374074.jpeg);"></div>
+        <div class="theme-hero-area-bg" style="background-image:url(./img/pexels-photo-268976.jpeg);"></div>
         <div class="theme-hero-area-mask theme-hero-area-mask-strong"></div>
       </div>
       <div class="theme-hero-area-body " style="padding: 100px 0px 130px 0px">
