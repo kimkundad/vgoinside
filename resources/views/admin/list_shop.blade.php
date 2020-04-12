@@ -59,7 +59,7 @@
     color: #9E9E9E;
 }
 .theme-account-card {
-    height: 165px;
+    height: 40vh !important;
 }
 .theme-search-results-item-preview {
     padding: 23px 20px;
@@ -151,7 +151,7 @@
 
                 <div class="row row-col-gap" data-gutter="20">
 
-                  <div class="col-md-6 ">
+                  <div class="col-md-4 ">
                     <div class="theme-account-card theme-account-card-new">
                       <a class="theme-account-card-mask-link" href="{{ url('admin/create_shop/'.$objs->PROVINCE_ID) }}"></a>
                       <p class="theme-account-card-new-title">+ เพิ่มร้านค้าใหม่ </p>
@@ -164,7 +164,7 @@
 
                   @if(isset($shop))
                   @foreach($shop as $u)
-              
+
 
 
                    <div class="col-md-4 ">
