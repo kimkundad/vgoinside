@@ -5,8 +5,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <p class="theme-copyright-text"><a href="#">Bookify</a>. &copy; 2019
-        
+        <p class="theme-copyright-text"><a href="#">Vgoinside</a>. &copy; 2019
+
         </p>
       </div>
       <div class="col-md-6">
