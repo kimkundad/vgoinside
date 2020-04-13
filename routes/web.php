@@ -29,6 +29,7 @@ Route::group(['middleware' => ['UserRole:manager|employee|customer']], function(
   Route::get('/shop_detail/{id}', 'HomeController@shop_detail')->name('shop_detail');
   Route::get('/gallery_detail/{id}', 'HomeController@gallery_detail')->name('gallery_detail');
   Route::get('/search_shop', 'HomeController@search_shop')->name('search_shop');
+    Route::get('api/get_file_doc/{id}', 'ApiController@get_file_doc')->name('get_file_doc');
 
 });
 
@@ -51,7 +52,7 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
   Route::post('/api/edit_folder_image', 'ApiController@edit_folder_image')->name('edit_folder_image');
 
   Route::get('api/del_file_doc/{id}/{shop}', 'ApiController@del_file_doc')->name('del_file_doc');
-  Route::get('api/get_file_doc/{id}', 'ApiController@get_file_doc')->name('get_file_doc');
+
   Route::get('admin/index', 'AdminController@index')->name('home');
   Route::get('admin/list_shop/{id}', 'AdminController@list_shop')->name('list_shop');
   Route::get('admin/shop_detail/{id}', 'AdminController@shop_detail')->name('shop_detail');
