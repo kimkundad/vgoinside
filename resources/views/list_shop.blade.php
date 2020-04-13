@@ -111,7 +111,7 @@
                 <ul class="theme-breadcrumbs _mt-20">
                   <li>
                     <p class="theme-breadcrumbs-item-title">
-                      <a href="{{ url('/') }}">หน้าแรก {{$objs->GEO_ID}}</a>
+                      <a href="{{ url('/') }}">หน้าแรก </a>
                     </p>
                   </li>
                   <li>
