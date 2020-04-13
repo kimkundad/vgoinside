@@ -234,10 +234,11 @@
               <thead>
                 <tr>
                   <th></th>
+                  <th></th>
                   <th>Name</th>
                   <th>Type</th>
                   <th>Date</th>
-                  <th></th>
+
                 </tr>
               </thead>
               <tbody>
@@ -245,6 +246,9 @@
                 @if(isset($file))
                 @foreach($file as $u)
                 <tr>
+                  <td>
+                    <a class="btn btn-primary-inverse  theme-search-results-item-price-btn" href="{{ url('api/get_file_doc/'.$u->id) }}">ดาวน์โหลดไฟล์</a>
+                  </td>
                   <td class="theme-account-history-type">
                     @if($u->type_file == 'Excel')
                     <i class="fa fa-file-excel-o theme-account-history-type-icon"></i>
@@ -267,9 +271,7 @@
                   <td class="theme-account-history-tr-date">
                     <p class="theme-account-history-date">{{$u->created_at}} </p>
                   </td>
-                  <td>
-                    <a class="btn btn-primary-inverse  theme-search-results-item-price-btn" href="{{ url('api/get_file_doc/'.$u->id) }}">ดาวน์โหลดไฟล์</a>
-                  </td>
+
                 </tr>
                 @endforeach
                 @endif

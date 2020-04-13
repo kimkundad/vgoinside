@@ -360,16 +360,25 @@
                         <thead>
                           <tr>
                             <th></th>
+                            <th></th>
                             <th>Name</th>
                             <th>Type</th>
                             <th>Date</th>
-                            <th></th>
+
                           </tr>
                         </thead>
                         <tbody>
                           @if(isset($file))
                           @foreach($file as $u)
                           <tr>
+                            <td>
+                              <a href="{{ url('api/get_file_doc/'.$u->id) }}" style="margin-right:10px;"  title="ดาวน์โหลดเอกสาร">
+                                <i class="fa fa-cloud-download"></i>
+                              </a>
+                              <a href="{{ url('api/del_file_doc/'.$u->id.'/'.$objs->id) }}" onclick="return confirm('Are you sure?')" title="ลบเอกสารทิ้ง">
+                                <i class="fa fa-trash-o"></i>
+                              </a>
+                            </td>
                             <td class="theme-account-history-type">
                               @if($u->type_file == 'Excel')
                               <i class="fa fa-file-excel-o theme-account-history-type-icon"></i>
@@ -391,14 +400,7 @@
                             <td class="theme-account-history-tr-date">
                               <p class="theme-account-history-date">{{$u->created_at}} </p>
                             </td>
-                            <td>
-                              <a href="{{ url('api/get_file_doc/'.$u->id) }}" style="margin-right:10px;"  title="ดาวน์โหลดเอกสาร">
-                                <i class="fa fa-cloud-download"></i>
-                              </a>
-                              <a href="{{ url('api/del_file_doc/'.$u->id.'/'.$objs->id) }}" onclick="return confirm('Are you sure?')" title="ลบเอกสารทิ้ง">
-                                <i class="fa fa-trash-o"></i>
-                              </a>
-                            </td>
+
                           </tr>
                           @endforeach
                           @endif
