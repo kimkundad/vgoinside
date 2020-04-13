@@ -180,26 +180,62 @@ class HomeController extends Controller
           ->where('GEO_ID', 2)
           ->get();
 
+          foreach($obj1 as $u){
+            $count = DB::table('shops')
+                ->where('prov_id', $u->PROVINCE_ID)
+                ->count();
+                $u->option = $count;
+          }
+
           $obj2 = DB::table('province')
               ->where('GEO_ID', 3)
               ->get();
+              foreach($obj2 as $u){
+                $count = DB::table('shops')
+                    ->where('prov_id', $u->PROVINCE_ID)
+                    ->count();
+                    $u->option = $count;
+              }
 
               $obj3 = DB::table('province')
                   ->where('GEO_ID', 1)
                   ->get();
+                  foreach($obj3 as $u){
+                    $count = DB::table('shops')
+                        ->where('prov_id', $u->PROVINCE_ID)
+                        ->count();
+                        $u->option = $count;
+                  }
 
                   $obj4 = DB::table('province')
                       ->where('GEO_ID', 6)
                       ->get();
+                      foreach($obj4 as $u){
+                        $count = DB::table('shops')
+                            ->where('prov_id', $u->PROVINCE_ID)
+                            ->count();
+                            $u->option = $count;
+                      }
 
                       $obj5 = DB::table('province')
                           ->where('GEO_ID', 4)
                           ->get();
+                          foreach($obj5 as $u){
+                            $count = DB::table('shops')
+                                ->where('prov_id', $u->PROVINCE_ID)
+                                ->count();
+                                $u->option = $count;
+                          }
 
                           $obj6 = DB::table('province')
                               ->where('GEO_ID', 5)
                               ->get();
-
+                              foreach($obj6 as $u){
+                                $count = DB::table('shops')
+                                    ->where('prov_id', $u->PROVINCE_ID)
+                                    ->count();
+                                    $u->option = $count;
+                              }
 
 
       $data['objs1'] = $obj1;

@@ -74,14 +74,14 @@
                   <p class="theme-account-traveler-name">ภาคกลาง</p>
                   <ul class="theme-sidebar-section-features-list">
                     @foreach($objs1 as $u)
-                      <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a></li>
+                      <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a> <span style="font-size:12px;">( {{$u->option}} )</span></li>
                     @endforeach
                     </ul>
                     <br /><br />
                     <p class="theme-account-traveler-name">	ภาคตะวันออก</p>
                     <ul class="theme-sidebar-section-features-list">
                     @foreach($objs6 as $u)
-                      <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a></li>
+                      <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a> <span style="font-size:12px;">( {{$u->option}} )</span></li>
                     @endforeach
                     </ul>
                 </div>
@@ -92,7 +92,7 @@
                   <p class="theme-account-traveler-name">ภาคตะวันออกเฉียงเหนือ</p>
                   <ul class="theme-sidebar-section-features-list">
                     @foreach($objs2 as $u)
-                      <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a></li>
+                      <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a> <span style="font-size:12px;">( {{$u->option}} )</span></li>
                     @endforeach
                     </ul>
                     <br /><br />
@@ -100,7 +100,7 @@
                     <p class="theme-account-traveler-name">ภาคตะวันตก</p>
                     <ul class="theme-sidebar-section-features-list">
                     @foreach($objs5 as $u)
-                      <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a></li>
+                      <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a> <span style="font-size:12px;">( {{$u->option}} )</span></li>
                     @endforeach
                     </ul>
                 </div>
@@ -111,7 +111,7 @@
                   <p class="theme-account-traveler-name">ภาคเหนือ</p>
                   <ul class="theme-sidebar-section-features-list">
                   @foreach($objs3 as $u)
-                    <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a></li>
+                    <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a> <span style="font-size:12px;">( {{$u->option}} )</span></li>
                   @endforeach
                   </ul>
                 </div>
@@ -122,7 +122,7 @@
                   <p class="theme-account-traveler-name">ภาคใต้</p>
                   <ul class="theme-sidebar-section-features-list">
                   @foreach($objs4 as $u)
-                    <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a></li>
+                    <li><a href="{{ url('admin/list_shop/'.$u->PROVINCE_ID) }}">{{$u->PROVINCE_NAME}}</a> <span style="font-size:12px;">( {{$u->option}} )</span></li>
                   @endforeach
                   </ul>
                 </div>
