@@ -36,6 +36,12 @@ Route::group(['middleware' => ['UserRole:manager|employee|customer']], function(
 
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {
 
+
+  Route::get('admin/user_edit/{id}', 'studentController@user_edit')->name('user_edit');
+  Route::get('admin/user', 'studentController@user')->name('user');
+  Route::post('/api/edit_my_user', 'studentController@edit_my_user')->name('edit_my_user');
+
+
   Route::post('/api/post_folder_image', 'ApiController@post_folder_image')->name('post_folder_image');
   Route::post('/api/post_file_download', 'ApiController@post_file_download')->name('post_file_download');
 

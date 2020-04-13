@@ -91,6 +91,13 @@
                       <i class="fa fa-home"></i>ไปหน้าบ้าน
                     </a>
                   </li>
+                  @if(Auth::user()->hasRole('manager') == true)
+                  <li>
+                    <a href="{{url('admin/user')}}">
+                      <i class="fa fa-user-o"></i>จัดการรายชื่อ
+                    </a>
+                  </li>
+                  @endif
                   <li>
                     <a href="{{url('logout')}}">
                       <i class="fa fa-lock"></i>ออกจากระบบ
