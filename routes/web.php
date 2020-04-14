@@ -20,11 +20,11 @@ Auth::routes();
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-
+Route::get('/', 'HomeController@home')->name('home');
 
 Route::group(['middleware' => ['UserRole:manager|employee|customer']], function() {
 
-  Route::get('/', 'HomeController@index')->name('home');
+  Route::get('/index', 'HomeController@index')->name('home');
   Route::get('/list_shop/{id}', 'HomeController@list_shop')->name('list_shop');
   Route::get('/shop_detail/{id}', 'HomeController@shop_detail')->name('shop_detail');
   Route::get('/gallery_detail/{id}', 'HomeController@gallery_detail')->name('gallery_detail');

@@ -9,18 +9,16 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="{{url('/')}}" >
-          <img src="{{url('assets/home/img/logo.png')}}" alt="logo greenwondery" title="greenwondery" />
+          <img src="{{url('img/vigoinside.png')}}" alt="vgoinside website" title="vgoinside website"/>
         </a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-main" >
         <ul class="nav navbar-nav">
 
 
-
-
-
-
-
+          <li class=" dropdown">
+            <a href="#contact" >ติดต่อเรา</a>
+          </li>
 
 
         </ul>

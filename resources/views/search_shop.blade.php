@@ -1,8 +1,5 @@
 @extends('layouts.template2')
 
-@section('title')
-ยังไม่ได้ตั้งชื่อ | เว็บไซต์
-@stop
 
 
 
@@ -111,7 +108,7 @@
                 <ul class="theme-breadcrumbs _mt-20">
                   <li>
                     <p class="theme-breadcrumbs-item-title">
-                      <a href="{{ url('/') }}">หน้าแรก {{$objs->GEO_ID}}</a>
+                      <a href="{{ url('/index') }}">หน้าแรก {{$objs->GEO_ID}}</a>
                     </p>
                   </li>
                   <li>

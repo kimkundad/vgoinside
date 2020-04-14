@@ -6,7 +6,7 @@
 
 
 
-    <title> @yield('title')</title>
+    <title>   ตอบโจทย์การรวบรวข้อมูล แบ่งปันข้อมูล สำหรับในองค์กร | vgoinside.com </title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -23,7 +23,7 @@
 
 
 
-    <link rel="icon" type="image/png" href="{{url('/img/48x48.png')}}">
+    <link rel="icon" type="image/png" href="{{url('/img/icon_vigoinside.png')}}">
 
 
 

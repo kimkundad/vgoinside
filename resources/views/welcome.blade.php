@@ -1,8 +1,6 @@
 @extends('layouts.template2')
 
-@section('title')
-ยังไม่ได้ตั้งชื่อ | เว็บไซต์
-@stop
+
 
 
 

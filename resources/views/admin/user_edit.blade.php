@@ -1,8 +1,5 @@
 @extends('admin.layouts.template2')
 
-@section('title')
-ยังไม่ได้ตั้งชื่อ | เว็บไซต์
-@stop
 
 
 
@@ -87,7 +84,7 @@
               <nav class="theme-account-nav">
                 <ul class="theme-account-nav-list">
                   <li>
-                    <a href="{{url('/')}}">
+                    <a href="{{url('/index')}}">
                       <i class="fa fa-home"></i>ไปหน้าบ้าน
                     </a>
                   </li>

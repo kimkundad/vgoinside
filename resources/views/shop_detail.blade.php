@@ -1,8 +1,6 @@
 @extends('layouts.template2')
 
-@section('title')
-ยังไม่ได้ตั้งชื่อ | เว็บไซต์
-@stop
+
 
 
 
@@ -114,7 +112,7 @@
                 <ul class="theme-breadcrumbs _mt-20">
                   <li>
                     <p class="theme-breadcrumbs-item-title">
-                      <a href="{{ url('/') }}">หน้าแรก </a>
+                      <a href="{{ url('/index') }}">หน้าแรก </a>
                     </p>
                   </li>
                   <li>
