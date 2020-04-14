@@ -25,7 +25,7 @@
           <div class="row _pt-150 _pb-100 _pv-mob-60" >
 
             <div class="col-md-6">
-              <div class="theme-hero-text _mt-50 _mob-h theme-hero-text-white">
+              <div class="theme-hero-text _mt-50  theme-hero-text-white">
                 <div class="theme-hero-text-header">
                   <h2 class="theme-hero-text-title" style="font-size:28px;">ตอบโจทย์การรวบรวข้อมูล แบ่งปันข้อมูล สำหรับในองค์กร</h2>
                   <p class="theme-hero-text-subtitle" style="font-size:18px;">ตัวช่วยด้านการจัดการข้อมูล รวบรวมไว้ในที่เดียวกัน ตอบโจทย์ทุกความต้องการของธุรกิจ
