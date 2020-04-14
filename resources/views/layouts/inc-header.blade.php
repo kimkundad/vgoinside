@@ -20,6 +20,11 @@
             <a href="#contact" >ติดต่อเรา</a>
           </li>
 
+          <li class=" dropdown">
+            <a href="{{url('index')}}">ใช้งานระบบ</a>
+          </li>
+
+
 
         </ul>
 
@@ -41,7 +46,9 @@
               <i class="fa fa-user-circle-o navbar-nav-item-user-icon"></i> {{ Auth::user()->name }}
             </a>
             <ul class="dropdown-menu">
-
+              <li>
+                <a href="{{url('index')}}">ใช้งานระบบ</a>
+              </li>
               <li>
                 <a href="{{url('logout')}}">ออกจากระบบ</a>
               </li>

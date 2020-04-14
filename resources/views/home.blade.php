@@ -33,7 +33,7 @@
 ครอบคลุมทุกขั้นตอนกระบวนการรวบรวมอย่างมีประสิทธิภาพ  จัดการเป็นหมวดหมู่เข้าถึงได้ง่าย และสามารถแบ่งปันข้อมูลภายในได้อย่างมีประสิทธิภาพในองค์กร
 พร้อมฟังก์ชั่นการทำงานที่รวดเร็วและยืดหยุ่น</p>
                 </div>
-                <a class="btn _tt-uc _mt-30 btn-white btn-ghost btn-lg" href="{{  url('login' )}}">www.vgoinside.com</a>
+                <a class="btn _tt-uc _mt-30 btn-white btn-ghost btn-lg" href="{{  url('index' )}}">www.vgoinside.com</a>
               </div>
             </div>
           </div>

@@ -16,7 +16,12 @@
         <ul class="nav navbar-nav">
 
 
-
+          <li class=" dropdown">
+            <a href="#contact" >ติดต่อเรา</a>
+          </li>
+          <li class=" dropdown">
+            <a href="{{url('index')}}">ใช้งานระบบ</a>
+          </li>
 
 
         </ul>
@@ -24,7 +29,9 @@
 
         <ul class="nav navbar-nav navbar-right">
 
-
+          <li class=" dropdown">
+            <a href="{{url('index')}}">ใช้งานระบบ</a>
+          </li>
 
 
           <li class="navbar-nav-item-user dropdown">
@@ -38,7 +45,9 @@
               <i class="fa fa-user-circle-o navbar-nav-item-user-icon"></i> {{ Auth::user()->name }}
             </a>
             <ul class="dropdown-menu">
-
+              <li>
+                <a href="{{url('index')}}">ใช้งานระบบ</a>
+              </li>
               <li>
                 <a href="{{url('logout')}}">ออกจากระบบ</a>
               </li>
