@@ -251,4 +251,86 @@ class HomeController extends Controller
 
         return view('welcome', $data);
     }
+
+
+
+
+    public function add_my_contact(Request $request){
+
+
+    $secret="6LdQnlkUAAAAADW2xY5YauDvYTlGfrzlg-X1la3k";
+  //  $response = $request['captcha'];
+
+    $captcha = "";
+    if (isset($request["g-recaptcha-response"]))
+      $captcha = $request["g-recaptcha-response"];
+
+  //  $verify=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response");
+    $response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$_SERVER["REMOTE_ADDR"]), true);
+    //$captcha_success=json_decode($verify);
+
+  //  dd($captcha_success);
+
+    if($response["success"] == false) {
+
+      return response()->json([
+        'data' => [
+          'status' => 100,
+          'msg' => 'This user was not verified by recaptcha.',
+          'data' => "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response"
+        ]
+      ]);
+
+    }else{
+
+      $obj = DB::table('contacts')->insert(
+           [
+             'name' => $request['name'],
+             'email' => $request['email'],
+             'phone' => $request['phone'],
+             'detail' => $request['msg'],
+             'created_at' => new \DateTime()
+           ]
+         );
+
+
+      $message = $request['name'].", ".$request['phone'].", ".$request['email'].", ข้อความ : ".$request['msg'];
+      $lineapi = '2oow4KAmmpXYvIFQHatlVpPY3ziIXEXr2uGq2WPG77P';
+
+      $mms =  trim($message);
+      $chOne = curl_init();
+      curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+      curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
+      curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
+      curl_setopt($chOne, CURLOPT_POST, 1);
+      curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=$mms");
+      curl_setopt($chOne, CURLOPT_FOLLOWLOCATION, 1);
+      $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$lineapi.'',);
+      curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
+      curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
+      $result = curl_exec($chOne);
+      if(curl_error($chOne)){
+      echo 'error:' . curl_error($chOne);
+      }else{
+      $result_ = json_decode($result, true);
+  //    echo "status : ".$result_['status'];
+  //    echo "message : ". $result_['message'];
+      }
+      curl_close($chOne);
+
+
+      return response()->json([
+        'data' => [
+          'status' => 200,
+          'msg' => 'This user is verified by recaptcha.'
+        ]
+      ]);
+
+    }
+
+
+
+  }
+
+
 }

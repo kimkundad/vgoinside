@@ -259,21 +259,27 @@
                 หากมีข้อสงสัยคำถามหรือคำแนะนำใด ๆ กรุณาโทร: 02-034-4300 หรือกรอกแบบฟอร์มด้านล่างนี้
               </p>
               <div class="row row-col-mob-gap" id="contact">
+                <form id="contactForm">
+              {{ csrf_field() }}
                 <div class="col-md-12">
                   <div class="form-group theme-contact-form-group">
-                    <input class="form-control" type="text" placeholder="ชื่อผู้ติดต่อ">
+                    <input class="form-control" type="text" name="name" id="name" placeholder="ชื่อผู้ติดต่อ">
                   </div>
                   <div class="form-group theme-contact-form-group">
-                    <input class="form-control" type="text" placeholder="อีเมล">
+                    <input class="form-control" type="text" name="email" id="email" placeholder="อีเมล">
                   </div>
                   <div class="form-group theme-contact-form-group">
-                    <input class="form-control" type="text" placeholder="เบอร์ติดต่อ">
+                    <input class="form-control" type="text" name="phone" id="phone" placeholder="เบอร์ติดต่อ">
                   </div>
                   <div class="form-group theme-contact-form-group">
-                    <textarea class="form-control" rows="5" placeholder="ข้อความถึงเรา...."></textarea>
+                  <div class="g-recaptcha" data-sitekey="6LdQnlkUAAAAAOfsIz7o-U6JSgrSMseulLvu7lI8"></div>
                   </div>
-                  <a class="btn btn-uc btn-primary btn-lg" href="#">ส่งข้อความ</a>
+                  <div class="form-group theme-contact-form-group">
+                    <textarea class="form-control" rows="5" name="msg" id="msg" placeholder="ข้อความถึงเรา...."></textarea>
+                  </div>
+                  <a class="btn btn-uc btn-primary btn-lg" id="btnSendData" href="#">ส่งข้อความ</a>
                 </div>
+                </form>
 
               </div>
             </div>
@@ -311,6 +317,91 @@
 @endsection
 
 @section('scripts')
+<script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
+<script>
+
+$(document).on('click','#btnSendData',function (event) {
+  event.preventDefault();
+  var form = $('#contactForm')[0];
+  var formData = new FormData(form);
+
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var msg = document.getElementById("msg").value;
+  var phone = document.getElementById("phone").value;
+
+
+
+
+if(name == '' || msg == '' || email == '' || phone == ''){
+
+  swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
+
+}else{
+
+  $.LoadingOverlay("show", {
+    background  : "rgba(255, 255, 255, 0.4)",
+    image       : "",
+    fontawesome : "fa fa-cog fa-spin"
+  });
+
+
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="token"]').attr('value')
+    }
+});
+
+  $.ajax({
+      url: "{{url('/api/add_my_contact')}}",
+      headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+      data: formData,
+      processData: false,
+      contentType: false,
+      cache:false,
+      type: 'POST',
+      success: function (data) {
+
+      //  console.log(data.data.status)
+          if(data.data.status == 200){
+
+
+            setTimeout(function(){
+                $.LoadingOverlay("hide");
+            }, 0);
+
+            swal("สำเร็จ!", "ข้อความถูกส่งไปหาเจ้าหน้าที่เรียบร้อยแล้ว", "success");
+
+            $("#name").val('');
+            $("#msg").val('');
+            $("#email").val('');
+            $("#phone").val('');
+
+
+          setTimeout(function(){
+            //    window.location.replace("{{url('clients/success_payment/')}}/"+data.data.value);
+          }, 3000);
+
+          }else{
+
+            setTimeout(function(){
+                $.LoadingOverlay("hide");
+            }, 500);
+
+            swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
+
+          }
+      },
+      error: function () {
+
+      }
+  });
+
+}
+
+
+});
+</script>
 
 
 @stop('scripts')

@@ -21,6 +21,8 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', 'HomeController@home')->name('home');
+Route::post('/api/add_my_contact', 'HomeController@add_my_contact')->name('add_my_contact');
+
 
 Route::group(['middleware' => ['UserRole:manager|employee|customer']], function() {
 
