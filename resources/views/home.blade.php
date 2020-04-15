@@ -122,7 +122,7 @@
                         <div class="theme-mobile-app-body">
                           <div class="theme-mobile-app-header">
 
-                            <p class="theme-mobile-app-subtitle">ให้การรบรวมข้อมุลเป็นเรื่องง่ายสำหรับธุรกิจของคุณ</p>
+                            <p class="theme-mobile-app-subtitle">ให้การรวบรวมข้อมุลเป็นเรื่องง่ายสำหรับธุรกิจของคุณ</p>
                             <br />
                             <ul class="theme-sidebar-section-features-list" style="color:#fff">
                               <li>
