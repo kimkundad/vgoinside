@@ -292,7 +292,7 @@
             </a>
             <div style="padding-left:15px;">
               <p><b>REDROCKING Co.,Ltd</b></p>
-              <p>04/53 Kanchanapisek Rd.North Bangkhae<br />Bangkhae, Bangkhae, 10160</p>
+              <p>504/53 Kanchanapisek Rd.North Bangkhae<br />Bangkhae, Bangkhae, 10160</p>
             </div>
             <ul class="theme-contact-info-list" style="padding-left:15px;">
                     <li>
