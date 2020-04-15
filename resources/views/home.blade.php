@@ -183,7 +183,7 @@
 
         <div class="theme-inline-slider-item">
           <div class="banner _br-4 banner-sqr banner-animate banner-animate-mask-in">
-            <div class="banner-bg" style="background-image:url({{url('img/company/15591587_1247120518702897_8222404698114093062_o.jpg')}});"></div>
+            <div class="banner-bg" style="background-image:url({{url('img/company/samsung-logo-01.png')}});"></div>
             <div class="banner-mask _mob-h"></div>
             <a class="banner-link add_pro_item" style="cursor: pointer; border: 1px solid #f3eded;"></a>
 
@@ -192,7 +192,7 @@
 
         <div class="theme-inline-slider-item">
           <div class="banner _br-4 banner-sqr banner-animate banner-animate-mask-in">
-            <div class="banner-bg" style="background-image:url({{url('img/company/90116955_3820815014627326_942148617370599424_o.jpg')}});"></div>
+            <div class="banner-bg" style="background-image:url({{url('img/company/messageImage_1586938736946.jpg')}});"></div>
             <div class="banner-mask _mob-h"></div>
             <a class="banner-link add_pro_item" style="cursor: pointer; border: 1px solid #f3eded;"></a>
 
