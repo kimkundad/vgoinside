@@ -172,9 +172,11 @@
     <div class="theme-inline-slider row" data-gutter="10">
       <div class="owl-carousel" data-items="5" data-loop="true" data-nav="true">
 
+
+
         <div class="theme-inline-slider-item">
           <div class="banner _br-4 banner-sqr banner-animate banner-animate-mask-in">
-            <div class="banner-bg" style="background-image:url({{url('img/company/16425871_768772043279246_7410818610484122753_n.jpg')}});"></div>
+            <div class="banner-bg" style="background-image:url({{url('img/company/samsung-logo-01.png')}});"></div>
             <div class="banner-mask _mob-h"></div>
             <a class="banner-link add_pro_item" style="cursor: pointer; border: 1px solid #f3eded;"></a>
 
@@ -183,7 +185,7 @@
 
         <div class="theme-inline-slider-item">
           <div class="banner _br-4 banner-sqr banner-animate banner-animate-mask-in">
-            <div class="banner-bg" style="background-image:url({{url('img/company/samsung-logo-01.png')}});"></div>
+            <div class="banner-bg" style="background-image:url({{url('img/company/messageImage_1586939366771.jpg')}});"></div>
             <div class="banner-mask _mob-h"></div>
             <a class="banner-link add_pro_item" style="cursor: pointer; border: 1px solid #f3eded;"></a>
 
