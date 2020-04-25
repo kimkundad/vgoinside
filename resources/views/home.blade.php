@@ -185,6 +185,15 @@
 
         <div class="theme-inline-slider-item">
           <div class="banner _br-4 banner-sqr banner-animate banner-animate-mask-in">
+            <div class="banner-bg" style="background-image:url({{url('img/company/5461_image_th.png')}});"></div>
+            <div class="banner-mask _mob-h"></div>
+            <a class="banner-link add_pro_item" style="cursor: pointer; border: 1px solid #f3eded;"></a>
+
+          </div>
+        </div>
+
+        <div class="theme-inline-slider-item">
+          <div class="banner _br-4 banner-sqr banner-animate banner-animate-mask-in">
             <div class="banner-bg" style="background-image:url({{url('img/company/messageImage_1586939366771.jpg')}});"></div>
             <div class="banner-mask _mob-h"></div>
             <a class="banner-link add_pro_item" style="cursor: pointer; border: 1px solid #f3eded;"></a>

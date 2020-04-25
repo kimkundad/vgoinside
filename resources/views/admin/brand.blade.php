@@ -125,7 +125,7 @@
                     </p>
                   </li>
                   <li>
-                    <p class="theme-breadcrumbs-item-title active">จัดการรายชื่อ</p>
+                    <p class="theme-breadcrumbs-item-title active">จัดการ brand</p>
                   </li>
                 </ul>
               </div>
@@ -137,69 +137,39 @@
 
 
 
-              <div class="theme-account-preferences-item">
-                  <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">ข้อมูลของผู้ใช้งานทั้งหมด</h5>
-
-                  <div class=" _pb-0">
-
-                    <div class="theme-account-history">
+              <div class="theme-search-results">
 
 
 
-                      <div class="table-responsive ">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>ชื่อผู้ใช้งาน</th>
-                            <th>อีเมล</th>
-                            <th>เบอร์ติดต่อ</th>
-                            <th>สถานะ</th>
-                            <th>วันที่สร้าง</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
+                  <div class="row row-col-gap" data-gutter="20">
 
-                          @if($objs)
-                            @foreach($objs as $u)
-
-                            <tr>
-                              <td>
-                                <img class="theme-account-avatar-img" src="{{ url('img/avatar/'.$u->avatar) }}" alt="kim" title="kim"> {{ $u->name }}
-                              </td>
-                              <td>
-                                {{ $u->email }}
-                              </td>
-                              <td>
-                                {{ $u->phone }}
-                              </td>
-                              <td>
-                                {{ $u->roles[0]->name }}
-                              </td>
-                              <td>
-                                {{ $u->created_at }}
-                              </td>
-                              <td>
-                                <a href="{{ url('admin/user_edit/'.$u->id) }}" style="margin-right:10px;"  >
-                                  <i class="fa fa-cog"></i>
-                                </a>
-                                <a href="{{ url('api/del_user/'.$u->id) }}" onclick="return confirm('Are you sure?')" >
-                                  <i class="fa fa-trash-o"></i>
-                                </a>
-                              </td>
-                            </tr>
-
-                            @endforeach
-                          @endif
-
-                        </tbody>
-                      </table>
+                    <div class="col-md-4 ">
+                      <div class="theme-account-card theme-account-card-new">
+                        <a class="theme-account-card-mask-link" href="{{ url('admin/create_brand/') }}"></a>
+                        <p class="theme-account-card-new-title">+ เพิ่ม brand ใหม่ </p>
                       </div>
-                      <div class="pagination"> {{ $objs->links() }} </div>
-
                     </div>
 
+                    @if(isset($objs))
+                    @foreach($objs as $u)
+
+                     <div class="col-md-4 ">
+                        <div class="banner _br-4 banner-sqr banner-animate banner-animate-mask-in">
+                          <div class="banner-bg" style="background-image:url({{ url('img/brand/'.$u->bimage) }});"></div>
+                          <div class="banner-mask"></div>
+                          <a class="banner-link" href="{{ url('admin/edit_brand/'.$u->id) }}"></a>
+                          <div class="banner-caption _bg-w _p-20 _w-a banner-caption-bottom banner-caption-dark">
+                            <h5 class="banner-title">{{ $u->bname }}</h5>
+                          </div>
+                        </div>
+                      </div>
+                     @endforeach
+                     @endif
+
                   </div>
+
+
+
               </div>
 
 

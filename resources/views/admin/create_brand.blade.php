@@ -125,7 +125,12 @@
                     </p>
                   </li>
                   <li>
-                    <p class="theme-breadcrumbs-item-title active">จัดการรายชื่อ</p>
+                    <p class="theme-breadcrumbs-item-title">
+                    <a href="{{ url('/admin/brand') }}">จัดการ brand </a>
+                    </p>
+                  </li>
+                  <li>
+                    <p class="theme-breadcrumbs-item-title active">สร้าง brand</p>
                   </li>
                 </ul>
               </div>
@@ -137,69 +142,47 @@
 
 
 
-              <div class="theme-account-preferences-item">
-                  <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">ข้อมูลของผู้ใช้งานทั้งหมด</h5>
-
-                  <div class=" _pb-0">
-
-                    <div class="theme-account-history">
+              <div class="theme-search-results">
 
 
 
-                      <div class="table-responsive ">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>ชื่อผู้ใช้งาน</th>
-                            <th>อีเมล</th>
-                            <th>เบอร์ติดต่อ</th>
-                            <th>สถานะ</th>
-                            <th>วันที่สร้าง</th>
-                            <th></th>
-                          </tr>
-                        </thead>
-                        <tbody>
+                  <div class="row row-col-gap" data-gutter="20">
 
-                          @if($objs)
-                            @foreach($objs as $u)
+                    <div class="col-md-12 ">
 
-                            <tr>
-                              <td>
-                                <img class="theme-account-avatar-img" src="{{ url('img/avatar/'.$u->avatar) }}" alt="kim" title="kim"> {{ $u->name }}
-                              </td>
-                              <td>
-                                {{ $u->email }}
-                              </td>
-                              <td>
-                                {{ $u->phone }}
-                              </td>
-                              <td>
-                                {{ $u->roles[0]->name }}
-                              </td>
-                              <td>
-                                {{ $u->created_at }}
-                              </td>
-                              <td>
-                                <a href="{{ url('admin/user_edit/'.$u->id) }}" style="margin-right:10px;"  >
-                                  <i class="fa fa-cog"></i>
-                                </a>
-                                <a href="{{ url('api/del_user/'.$u->id) }}" onclick="return confirm('Are you sure?')" >
-                                  <i class="fa fa-trash-o"></i>
-                                </a>
-                              </td>
-                            </tr>
+                      <div class="theme-account-preferences-item">
+                        <div class="collapse in" id="ChangeHomeAirportChange" aria-expanded="true" style="">
+                          <form id="contactForm">
+                            {{ csrf_field() }}
+                              <div class="" >
+                                <p class="theme-account-preferences-item-change-description">ตั้งชื่อ brand (<span class="text-danger">*จำเป็นต้องใส่</span>)</p>
+                                <div class="form-group theme-account-preferences-item-change-form">
+                                  <input class="form-control" type="text" name="bname" id="bname">
+                                </div>
+                                <br />
 
-                            @endforeach
-                          @endif
+                                <p class="theme-account-preferences-item-change-description">รูปภาพหลักของ brand รูปต้องเป็น type jpg png เท่านั้น (<span class="text-danger">*จำเป็นต้องใส่ </span>)</p>
+                                <div class="form-group theme-account-preferences-item-change-form">
+                                  <input class="" type="file" name="file" id="file">
+                                </div>
 
-                        </tbody>
-                      </table>
+
+                                <br />
+
+                                <div class="theme-account-preferences-item-change-actions">
+                                  <a class="btn btn-sm btn-primary" id="btnSendData">บันทึกข้อมูล</a>
+                                </div>
+                              </div>
+                              </form>
+                            </div>
                       </div>
-                      <div class="pagination"> {{ $objs->links() }} </div>
 
                     </div>
 
                   </div>
+
+
+
               </div>
 
 
@@ -234,6 +217,83 @@ $(document).ready(function() {
     ['insert', ['link', 'video']],
     ['height', ['height']]
   ]
+});
+
+
+
+$(document).on('click','#btnSendData',function (event) {
+  event.preventDefault();
+
+
+  $.LoadingOverlay("show", {
+  background  : "rgba(255, 255, 255, 0.4)",
+  image       : "",
+  fontawesome : "fa fa-cog fa-spin"
+});
+
+
+  var form = $('#contactForm')[0];
+  var formData = new FormData(form);
+  var files = $('#file')[0].files[0];
+
+  formData.append('file',files);
+
+  var bname = document.getElementById("bname").value;
+
+  console.log(formData);
+  if(bname == ''){
+
+  swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
+
+  }else{
+
+
+    $.ajax({
+      url: "{{url('/api/add_my_brand')}}",
+      headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+      data: formData,
+      processData: false,
+      contentType: false,
+      cache:false,
+      type: 'POST',
+      success: function (data) {
+
+      //  console.log(data.data.status)
+          if(data.data.status == 200){
+
+
+            setTimeout(function(){
+                $.LoadingOverlay("hide");
+            }, 0);
+
+            swal("สำเร็จ!", "ระบบได้ทำการเพิ่มข้อมูลสำเร็จ", "success");
+
+          setTimeout(function(){
+                window.location.replace("{{url('admin/edit_brand/')}}/"+data.data.data_id);
+          }, 3000);
+
+          }else{
+
+            setTimeout(function(){
+                $.LoadingOverlay("hide");
+            }, 500);
+
+            swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
+
+          }
+      },
+      error: function () {
+
+      }
+  });
+
+
+  }
+
+  setTimeout(function(){
+      $.LoadingOverlay("hide");
+  }, 2500);
+
 });
 
 

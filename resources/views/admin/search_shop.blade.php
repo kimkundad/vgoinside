@@ -99,6 +99,13 @@
                     </a>
                   </li>
                   @endif
+                  @if(Auth::user()->is_admin == 1)
+                  <li>
+                    <a href="{{url('admin/brand')}}">
+                      <i class="fa fa-cube"></i>จัดการ brand
+                    </a>
+                  </li>
+                  @endif
                   <li>
                     <a href="{{url('logout')}}">
                       <i class="fa fa-lock"></i>ออกจากระบบ
