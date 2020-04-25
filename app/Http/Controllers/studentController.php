@@ -24,6 +24,23 @@ class studentController extends Controller
 
     }
 
+
+    public function user_admin(){
+
+    $user = User::leftJoin('brands', function($join) {
+      $join->on('users.brand_id', '=', 'brands.id');
+    })
+    ->paginate(15);
+
+    //dd($user);
+
+          $data['objs'] = $user;
+
+      return view('admin.user_admin', $data);
+
+    }
+
+
     public function del_user($id){
 
       DB::table('users')

@@ -38,6 +38,7 @@ Route::group(['middleware' => ['UserRole:manager|employee|customer']], function(
 
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {
 
+  Route::get('admin/user_admin', 'studentController@user_admin')->name('user_admin');
 
   Route::post('api/post_new_user', 'studentController@post_new_user')->name('post_new_user');
   Route::get('admin/add_new_user', 'studentController@add_new_user')->name('index');

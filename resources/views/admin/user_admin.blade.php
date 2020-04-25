@@ -132,7 +132,7 @@
                     </p>
                   </li>
                   <li>
-                    <p class="theme-breadcrumbs-item-title active">จัดการรายชื่อ</p>
+                    <p class="theme-breadcrumbs-item-title active">ผู้ใช้งานทั้งหมด</p>
                   </li>
                 </ul>
               </div>
@@ -147,7 +147,7 @@
               <div class="theme-account-preferences-item">
 
                   <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">ข้อมูลของผู้ใช้งานทั้งหมด</h5>
-                  <a class="btn btn-primary-invert btn-shadow text-upcase theme-footer-subscribe-btn"  href="{{ url('admin/add_new_user/') }}">เพิ่มรายชื่อ</a>
+
                   <div class=" _pb-0">
 
                     <div class="theme-account-history">
@@ -155,9 +155,10 @@
 
 
                       <div class="table-responsive ">
-                      <table class="table">
+                      <table class="table" style="font-size: 11px;">
                         <thead>
                           <tr>
+                            <th>Brand</th>
                             <th>ชื่อผู้ใช้งาน</th>
                             <th>อีเมล</th>
                             <th>เบอร์ติดต่อ</th>
@@ -172,6 +173,9 @@
                             @foreach($objs as $u)
 
                             <tr>
+                              <td>
+                                <img class="theme-account-avatar-img img-thumbnail" src="{{ url('img/brand/'.$u->bimage) }}" style="border-radius: 0%;     width: 50px;">
+                              </td>
                               <td>
                                 <img class="theme-account-avatar-img" src="{{ url('img/avatar/'.$u->avatar) }}" alt="kim" title="kim"> {{ $u->name }}
                               </td>
