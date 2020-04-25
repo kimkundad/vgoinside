@@ -19,10 +19,12 @@ class AdminController extends Controller
 
           $shop = DB::table('shops')
               ->where('prov_id', $id)
+              ->where('brand_id', Auth::user()->brand_id)
               ->paginate(18);
 
               $count = DB::table('shops')
                   ->where('prov_id', $id)
+                  ->where('brand_id', Auth::user()->brand_id)
                   ->count();
 
           $data['count'] = $count;
@@ -44,6 +46,7 @@ class AdminController extends Controller
       $shop = DB::table('shops')
           ->where('prov_id', $request['prov_id'])
           ->where('shop_name', 'like', "%$search%")
+          ->where('brand_id', Auth::user()->brand_id)
           ->paginate(18);
 
           $obj1 = DB::table('province')
@@ -52,6 +55,7 @@ class AdminController extends Controller
 
               $count = DB::table('shops')
                   ->where('prov_id', $request['prov_id'])
+                  ->where('brand_id', Auth::user()->brand_id)
                   ->count();
 
           $data['count'] = $count;
@@ -80,12 +84,14 @@ class AdminController extends Controller
 
       $folder = DB::table('folders')
           ->where('id', $id)
+          ->where('brand_id', Auth::user()->brand_id)
           ->first();
 
         //  dd($folder);
 
           $objs = DB::table('shops')
               ->where('id', $folder->shop_id)
+              ->where('brand_id', Auth::user()->brand_id)
               ->first();
 
 
@@ -98,6 +104,7 @@ class AdminController extends Controller
                       )
                   ->leftjoin('users', 'users.id',  'folder_images.user_id')
                   ->where('folder_images.folder_id', $folder->id)
+                  ->where('folder_images.brand_id', Auth::user()->brand_id)
                   ->get();
 
 
@@ -107,6 +114,7 @@ class AdminController extends Controller
 
                       $count = DB::table('shops')
                           ->where('id', $folder->shop_id)
+                          ->where('brand_id', Auth::user()->brand_id)
                           ->count();
 
 
@@ -124,15 +132,18 @@ class AdminController extends Controller
 
       $file = DB::table('folder_files')
           ->where('shop_id', $id)
+          ->where('brand_id', Auth::user()->brand_id)
           ->get();
 
       $obj1 = DB::table('shops')
           ->where('id', $id)
+          ->where('brand_id', Auth::user()->brand_id)
           ->first();
 
 
           $folder = DB::table('folders')
               ->where('shop_id', $id)
+              ->where('brand_id', Auth::user()->brand_id)
               ->get();
 
               if(isset($folder)){
@@ -140,6 +151,7 @@ class AdminController extends Controller
 
                   $folder_image = DB::table('folder_images')
                       ->where('folder_id', $u->id)
+                      ->where('brand_id', Auth::user()->brand_id)
                       ->first();
 
                   $u->option = $folder_image;
@@ -153,6 +165,7 @@ class AdminController extends Controller
 
           $count = DB::table('shops')
               ->where('prov_id', $obj1->prov_id)
+              ->where('brand_id', Auth::user()->brand_id)
               ->count();
 
 
@@ -186,6 +199,7 @@ class AdminController extends Controller
           foreach($obj1 as $u){
             $count = DB::table('shops')
                 ->where('prov_id', $u->PROVINCE_ID)
+                ->where('brand_id', Auth::user()->brand_id)
                 ->count();
                 $u->option = $count;
           }
@@ -197,18 +211,19 @@ class AdminController extends Controller
               foreach($obj2 as $u){
                 $count = DB::table('shops')
                     ->where('prov_id', $u->PROVINCE_ID)
+                    ->where('brand_id', Auth::user()->brand_id)
                     ->count();
                     $u->option = $count;
               }
 
               $obj3 = DB::table('province')
-
                   ->where('GEO_ID', 1)
                   ->get();
 
                   foreach($obj3 as $u){
                     $count = DB::table('shops')
                         ->where('prov_id', $u->PROVINCE_ID)
+                        ->where('brand_id', Auth::user()->brand_id)
                         ->count();
                         $u->option = $count;
                   }
@@ -220,6 +235,7 @@ class AdminController extends Controller
                       foreach($obj4 as $u){
                         $count = DB::table('shops')
                             ->where('prov_id', $u->PROVINCE_ID)
+                            ->where('brand_id', Auth::user()->brand_id)
                             ->count();
                             $u->option = $count;
                       }
@@ -231,6 +247,7 @@ class AdminController extends Controller
                           foreach($obj5 as $u){
                             $count = DB::table('shops')
                                 ->where('prov_id', $u->PROVINCE_ID)
+                                ->where('brand_id', Auth::user()->brand_id)
                                 ->count();
                                 $u->option = $count;
                           }
@@ -242,6 +259,7 @@ class AdminController extends Controller
                               foreach($obj6 as $u){
                                 $count = DB::table('shops')
                                     ->where('prov_id', $u->PROVINCE_ID)
+                                    ->where('brand_id', Auth::user()->brand_id)
                                     ->count();
                                     $u->option = $count;
                               }

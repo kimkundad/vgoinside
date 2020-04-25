@@ -38,6 +38,12 @@ Route::group(['middleware' => ['UserRole:manager|employee|customer']], function(
 
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {
 
+
+  Route::post('api/post_new_user', 'studentController@post_new_user')->name('post_new_user');
+  Route::get('admin/add_new_user', 'studentController@add_new_user')->name('index');
+
+  Route::get('api/del_user/{id}', 'studentController@del_user')->name('del_user');
+
   Route::get('admin/brand', 'BrandController@index')->name('index');
   Route::get('admin/create_brand', 'BrandController@create_brand')->name('create_brand');
   Route::post('/api/add_my_brand', 'BrandController@add_my_brand')->name('add_my_brand');

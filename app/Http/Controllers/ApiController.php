@@ -22,10 +22,13 @@ class ApiController extends Controller
            'folder_name' => 'required'
        ]);
 
+       //->where('brand_id', Auth::user()->brand_id)
+
        $package = new folder();
        $package->folder_name = $request['folder_name'];
        $package->shop_id = $request['shop_id'];
        $package->user_id = Auth::user()->id;
+       $package->brand_id = Auth::user()->brand_id;
        $package->save();
 
        if (is_array($gallary) && sizeof($gallary) > 0) {
@@ -37,6 +40,7 @@ class ApiController extends Controller
               'image' => $filename,
               'folder_id' => $package->id,
               'user_id' => Auth::user()->id,
+              'brand_id' => Auth::user()->brand_id,
               'created_at' => date('Y-m-d H:i:s')
           ];
         }
@@ -63,6 +67,7 @@ class ApiController extends Controller
               'image' => $filename,
               'folder_id' => $request['folder_id'],
               'user_id' => Auth::user()->id,
+              'brand_id' => Auth::user()->brand_id,
               'created_at' => date('Y-m-d H:i:s')
           ];
         }
@@ -93,22 +98,26 @@ class ApiController extends Controller
 
       $obj1 = DB::table('shops')
           ->where('id', $id)
+          ->where('brand_id', Auth::user()->brand_id)
           ->first();
 
           $check = DB::table('folders')
               ->where('shop_id', $id)
+              ->where('brand_id', Auth::user()->brand_id)
               ->count();
 
               if($check > 0){
 
                 $folder = DB::table('folders')
                     ->where('shop_id', $id)
+                    ->where('brand_id', Auth::user()->brand_id)
                     ->get();
 
                 foreach($folder as $u){
 
                   $obj2 = DB::table('folder_images')
                       ->where('folder_id', $u->id)
+                      ->where('brand_id', Auth::user()->brand_id)
                       ->get();
 
                       if(isset($obj2)){
@@ -119,6 +128,7 @@ class ApiController extends Controller
 
                           DB::table('folder_images')
                           ->where('id', $j->id)
+                          ->where('brand_id', Auth::user()->brand_id)
                           ->delete();
 
                         }
@@ -126,6 +136,7 @@ class ApiController extends Controller
 
                       DB::table('folders')
                       ->where('id', $u->id)
+                      ->where('brand_id', Auth::user()->brand_id)
                       ->delete();
 
                 }
@@ -135,12 +146,14 @@ class ApiController extends Controller
 
               $check2 = DB::table('folder_files')
                   ->where('shop_id', $id)
+                  ->where('brand_id', Auth::user()->brand_id)
                   ->count();
 
             if($check2 > 0){
 
               $obj3 = DB::table('folder_files')
                   ->where('shop_id', $id)
+                  ->where('brand_id', Auth::user()->brand_id)
                   ->get();
 
                   foreach($obj3 as $k){
@@ -150,6 +163,7 @@ class ApiController extends Controller
 
                     DB::table('folder_files')
                     ->where('id', $k->id)
+                    ->where('brand_id', Auth::user()->brand_id)
                     ->delete();
 
                   }
@@ -161,6 +175,7 @@ class ApiController extends Controller
 
             DB::table('shops')
             ->where('id', $id)
+            ->where('brand_id', Auth::user()->brand_id)
             ->delete();
 
 
@@ -172,6 +187,7 @@ class ApiController extends Controller
 
       $objs = DB::table('folder_images')
           ->where('folder_id', $folder)
+          ->where('brand_id', Auth::user()->brand_id)
           ->get();
 
           if(isset($objs)){
@@ -185,10 +201,12 @@ class ApiController extends Controller
 
           DB::table('folder_images')
           ->where('folder_id', $folder)
+          ->where('brand_id', Auth::user()->brand_id)
           ->delete();
 
           DB::table('folders')
           ->where('id', $folder)
+          ->where('brand_id', Auth::user()->brand_id)
           ->delete();
 
           return redirect(url('admin/edit_shop/'.$shop))->with('del_success_folder_my','คุณทำการแก้ไขอสังหา สำเร็จ');
@@ -200,6 +218,7 @@ class ApiController extends Controller
 
       $objs = DB::table('folder_images')
           ->where('id', $id)
+          ->where('brand_id', Auth::user()->brand_id)
           ->first();
 
           $file_path = 'img/folder_image/'.$objs->image;
@@ -207,6 +226,7 @@ class ApiController extends Controller
 
           DB::table('folder_images')
           ->where('id', $id)
+          ->where('brand_id', Auth::user()->brand_id)
           ->delete();
 
           return redirect(url('admin/folder/'.$folder))->with('del_success_folder_image','คุณทำการแก้ไขอสังหา สำเร็จ');
@@ -218,6 +238,7 @@ class ApiController extends Controller
 
       $objs = DB::table('folder_files')
           ->where('id', $id)
+          ->where('brand_id', Auth::user()->brand_id)
           ->first();
 
           $file_path = 'img/folder_file/'.$objs->image_file;
@@ -225,6 +246,7 @@ class ApiController extends Controller
 
           DB::table('folder_files')
           ->where('id', $id)
+          ->where('brand_id', Auth::user()->brand_id)
           ->delete();
 
           return redirect(url('admin/edit_shop/'.$shop))->with('del_success_file','คุณทำการแก้ไขอสังหา สำเร็จ');
@@ -234,6 +256,7 @@ class ApiController extends Controller
 
       $obj1 = DB::table('folder_files')
           ->where('id', $id)
+          ->where('brand_id', Auth::user()->brand_id)
           ->first();
 
           return response()->download(public_path('img/folder_file/'.$obj1->image_file));
@@ -263,6 +286,7 @@ class ApiController extends Controller
          $package->type_file = $request['typefile'];
          $package->image_file = $filename;
          $package->user_id = Auth::user()->id;
+         $package->brand_id = Auth::user()->brand_id;
          $package->save();
 
          return redirect(url('admin/edit_shop/'.$request['shop_id']))->with('add_success_file','คุณทำการแก้ไขอสังหา สำเร็จ');
@@ -328,6 +352,7 @@ class ApiController extends Controller
       $package->prov_id = $request['prov_id'];
       $package->shop_image = $input['imagename'];
       $package->user_id = Auth::user()->id;
+      $package->brand_id = Auth::user()->brand_id;
       $package->save();
 
       return response()->json([

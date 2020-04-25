@@ -138,8 +138,9 @@
 
 
               <div class="theme-account-preferences-item">
-                  <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">ข้อมูลของผู้ใช้งานทั้งหมด</h5>
 
+                  <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">ข้อมูลของผู้ใช้งานทั้งหมด</h5>
+                  <a class="btn btn-primary-invert btn-shadow text-upcase theme-footer-subscribe-btn"  href="{{ url('admin/add_new_user/') }}">เพิ่มรายชื่อ</a>
                   <div class=" _pb-0">
 
                     <div class="theme-account-history">
@@ -246,6 +247,12 @@ $(document).ready(function() {
 
 @endif
 
+@if ($message = Session::get('add_success'))
+
+    swal("ระบบทำการเพิ่มรายชื่อให้เรียบร้อยแล้ว");
+
+@endif
+
 @if ($message = Session::get('add_success_file'))
 
     swal("ระบบทำการเพิ่มไฟล์ข้อมูลให้เรียบร้อยแล้ว");
@@ -253,9 +260,9 @@ $(document).ready(function() {
 @endif
 
 
-@if ($message = Session::get('del_success_folder_image'))
+@if ($message = Session::get('del_user'))
 
-    swal("ระบบทำการลบไฟล์ข้อมูลให้เรียบร้อยแล้ว");
+    swal("ระบบทำการลบข้อมูลให้เรียบร้อยแล้ว");
 
 @endif
 
