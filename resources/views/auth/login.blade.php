@@ -118,8 +118,7 @@ ul, li {
 
             </div>
             <div class="theme-login-box-alt">
-              <p>ถ้าหากยังไม่มีบัญชี? &nbsp;
-                <a href="{{url('register')}}">สร้างบัญชีผู้ใช้งาน</a>
+              <p>
               </p>
             </div>
           </div>

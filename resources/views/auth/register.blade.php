@@ -82,8 +82,7 @@ ul, li {
           <div class="theme-login-box">
             <div class="theme-login-box-inner">
 
-              <form class="theme-login-form" id="my_form_register" role="form" method="POST" action="{{ url('/register') }}">
-                {{ csrf_field() }}
+
                 <div class="form-group theme-login-form-group">
                   <input class="form-control" type="text" placeholder="Username" value="{{ old('name') }}" name="name"/>
                   @if ($errors->has('name'))
@@ -116,8 +115,9 @@ ul, li {
                     </span>
                 @endif
                 </div>
-                <a class="btn btn-uc btn-dark btn-block btn-lg" type="submit" href="javascript:{}" onclick="document.getElementById('my_form_register').submit();">Create Account</a>
-              </form>
+
+
+
 
 
             </div>
