@@ -140,7 +140,7 @@
 
               <div class="theme-search-results">
 
-                <h1 class="theme-account-page-title">สร้างร้านค้าใหม่</h1>
+                <h1 class="theme-account-page-title">เพิ่มรายชื่อ</h1>
 
                 <div class="theme-account-preferences" >
 
