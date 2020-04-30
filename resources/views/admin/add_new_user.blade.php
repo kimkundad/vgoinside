@@ -151,13 +151,13 @@
                           <div class="" >
                             <p class="theme-account-preferences-item-change-description">ชื่อผู้ใช้งาน (<span class="text-danger">*จำเป็นต้องใส่</span>)</p>
                             <div class="form-group theme-account-preferences-item-change-form">
-                              <input class="form-control" type="text" name="name" id="name">
+                              <input class="form-control" type="text" name="name" id="name" placeholder="ชื่อผู้ใช้งาน">
                             </div>
                             <br />
 
                             <p class="theme-account-preferences-item-change-description">อีเมล (<span class="text-danger">*จำเป็นต้องใส่</span>)</p>
                             <div class="form-group theme-account-preferences-item-change-form">
-                              <input class="form-control" type="text" name="email" id="email">
+                              <input class="form-control" type="email" name="email" id="email" placeholder="อีเมล">
                             </div>
                             <br />
 
