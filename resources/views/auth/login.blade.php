@@ -86,19 +86,19 @@ ul, li {
                 {{ csrf_field() }}
                 <div class="form-group theme-login-form-group">
                   <input class="form-control" name="email" type="text" value="{{ old('email') }}" placeholder="Email Address"/>
-                  @if ($errors->has('email'))
+                  @error('email')
                     <span class="text-danger">
                         <strong>{{ $message }}</strong>
                     </span>
-                @endif
+                @enderror
                 </div>
                 <div class="form-group theme-login-form-group">
                   <input class="form-control" type="password" name="password" placeholder="Password"/>
-                  @if ($errors->has('password'))
+                  @error('password')
                     <span class="help-block">
                        <strong>{{ $message }}</strong>
                     </span>
-                @endif
+                @enderror
                   <p class="help-block">
                     <a href="{{ url('/password/reset') }}">ลืมรหัสผ่าน?</a>
                   </p>
