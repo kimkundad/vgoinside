@@ -88,7 +88,7 @@ ul, li {
                   <input class="form-control" name="email" type="text" value="{{ old('email') }}" placeholder="Email Address"/>
                   @if ($errors->has('email'))
                     <span class="text-danger">
-                        <strong>Email ไม่มีอยู่ในระบบ</strong>
+                        <strong>{{ $message }}</strong>
                     </span>
                 @endif
                 </div>
@@ -96,7 +96,7 @@ ul, li {
                   <input class="form-control" type="password" name="password" placeholder="Password"/>
                   @if ($errors->has('password'))
                     <span class="help-block">
-                       <strong>password ไม่ถูกต้อง</strong>
+                       <strong>{{ $message }}</strong>
                     </span>
                 @endif
                   <p class="help-block">
