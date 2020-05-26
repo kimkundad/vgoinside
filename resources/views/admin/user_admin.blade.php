@@ -174,7 +174,9 @@
 
                             <tr>
                               <td>
+                                @if(isset($u->bimage))
                                 <img class="theme-account-avatar-img img-thumbnail" src="{{ url('img/brand/'.$u->bimage) }}" style="border-radius: 0%;     width: 50px;">
+                                @endif
                               </td>
                               <td>
                                 <img class="theme-account-avatar-img" src="{{ url('img/avatar/'.$u->avatar) }}" alt="kim" title="kim"> {{ $u->name }}
@@ -187,7 +189,7 @@
                               </td>
                               <td>
 
-                              
+
                               </td>
                               <td>
                                 {{ $u->created_at }}
