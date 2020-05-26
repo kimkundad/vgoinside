@@ -11,13 +11,8 @@ class SettingTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('settings')->insert([
-            [
-              'phone1' => '0811007753',
-              'facebook' => 'https://www.facebook.com/',
-              'youtube' => 'https://www.youtube.com/',
-              'address' => '20/426 Pruksa Ville',
-            ]
-        ]);
+      $sql = file_get_contents(database_path() . '/seeds/users.sql');
+
+       DB::statement($sql);
     }
 }
