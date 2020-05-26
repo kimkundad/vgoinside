@@ -11,7 +11,7 @@ class SettingTableSeeder extends Seeder
      */
     public function run()
     {
-      $sql = file_get_contents(database_path() . '/seeds/users.sql');
+      $sql = file_get_contents(database_path() . '/seeds/province.sql');
 
        DB::statement($sql);
     }
