@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
           $table->string('birthday')->nullable();
           $table->string('zipcode')->nullable();
           $table->integer('country')->nullable();
+          $table->integer('brand_id')->default('0');
           $table->string('code_user')->nullable();
           $table->rememberToken();
           $table->timestamps();
