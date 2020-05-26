@@ -22,6 +22,7 @@ class CreateShopsTable extends Migration
             $table->integer('user_id')->default('0');
             $table->integer('status')->default('0');
             $table->integer('view')->default('0');
+            $table->integer('brand_id')->default('0');
             $table->timestamps();
         });
     }
