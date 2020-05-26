@@ -18,6 +18,7 @@ class CreateFolderImagesTable extends Migration
             $table->integer('folder_id')->default('0');
             $table->string('image')->nullable();
             $table->integer('user_id')->default('0');
+            $table->integer('brand_id')->default('0');
             $table->timestamps();
         });
     }

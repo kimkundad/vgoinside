@@ -18,6 +18,7 @@ class CreateFoldersTable extends Migration
             $table->string('folder_name')->nullable();
             $table->integer('shop_id')->default('0');
             $table->integer('user_id')->default('0');
+            $table->integer('brand_id')->default('0');
             $table->timestamps();
         });
     }

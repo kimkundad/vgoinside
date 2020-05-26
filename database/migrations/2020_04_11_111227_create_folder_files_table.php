@@ -20,6 +20,7 @@ class CreateFolderFilesTable extends Migration
             $table->string('type_file')->nullable();
             $table->integer('user_id')->default('0');
             $table->integer('shop_id')->default('0');
+            $table->integer('brand_id')->default('0');
             $table->timestamps();
         });
     }
