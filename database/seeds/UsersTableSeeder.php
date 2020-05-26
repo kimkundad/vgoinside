@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
               'email' => 'admin@email.com',
               'password' => bcrypt('12345678'),
               'code_user' => 'UD123456',
+              'avatar' => '1483537975.png'
             ]
         ]);
     }
