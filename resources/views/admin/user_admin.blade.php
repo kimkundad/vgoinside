@@ -162,7 +162,6 @@
                             <th>ชื่อผู้ใช้งาน</th>
                             <th>อีเมล</th>
                             <th>เบอร์ติดต่อ</th>
-                            <th>สถานะ</th>
                             <th>วันที่สร้าง</th>
                             <th></th>
                           </tr>
@@ -187,18 +186,15 @@
                               <td>
                                 {{ $u->phone }}
                               </td>
-                              <td>
 
-
-                              </td>
                               <td>
                                 {{ $u->created_at }}
                               </td>
                               <td>
-                                <a href="{{ url('admin/user_edit/'.$u->id) }}" style="margin-right:10px;"  >
+                                <a href="{{ url('admin/user_edit/'.$u->id_u) }}" style="margin-right:10px;"  >
                                   <i class="fa fa-cog"></i>
                                 </a>
-                                <a href="{{ url('api/del_user/'.$u->id) }}" onclick="return confirm('Are you sure?')" >
+                                <a href="{{ url('api/del_user/'.$u->id_u) }}" onclick="return confirm('Are you sure?')" >
                                   <i class="fa fa-trash-o"></i>
                                 </a>
                               </td>

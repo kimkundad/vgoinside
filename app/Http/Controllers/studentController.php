@@ -27,10 +27,16 @@ class studentController extends Controller
 
     public function user_admin(){
 
-    $user = User::leftJoin('brands', function($join) {
-      $join->on('users.brand_id', '=', 'brands.id');
-    })
-    ->paginate(15);
+    $user = DB::table('users')->select(
+              'users.*',
+              'users.id as id_u',
+              'users.created_at as create',
+              'brands.*'
+              )
+              ->leftjoin('brands', 'brands.id',  'users.brand_id')
+              ->paginate(15);
+
+
 
     //dd($user);
 
