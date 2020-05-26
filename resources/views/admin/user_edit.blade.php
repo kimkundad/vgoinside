@@ -178,7 +178,6 @@
                                   <input class="form-control" type="text" name="phone" id="phone" value="{{ $objs->phone }}">
                                 </div>
                                 <br />
-
                                 <p class="theme-account-preferences-item-change-description">ที่อยู่ </p>
                                 <div class="form-group theme-account-preferences-item-change-form">
                                   <textarea class="form-control" rows="3" name="address" placeholder="ที่อยู่ของผู้ใช้งาน">{{ $objs->address }}</textarea>
