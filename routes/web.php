@@ -50,7 +50,7 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
   Route::post('/api/add_my_brand', 'BrandController@add_my_brand')->name('add_my_brand');
   Route::get('admin/edit_brand/{id}', 'BrandController@edit_brand')->name('edit_brand');
   Route::post('/api/edit_my_brand', 'BrandController@edit_my_brand')->name('edit_my_brand');
-
+  Route::get('api/del_my_brand/{id}', 'BrandController@del_my_brand')->name('del_my_brand');
 
   Route::get('admin/user_edit/{id}', 'studentController@user_edit')->name('user_edit');
   Route::get('admin/user', 'studentController@user')->name('user');

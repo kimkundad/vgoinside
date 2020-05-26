@@ -45,7 +45,6 @@ class studentController extends Controller
 
       DB::table('users')
       ->where('id', $id)
-      ->where('brand_id', Auth::user()->brand_id)
       ->delete();
 
       return redirect(url('admin/user'))->with('del_user','คุณทำการแก้ไขอสังหา สำเร็จ');

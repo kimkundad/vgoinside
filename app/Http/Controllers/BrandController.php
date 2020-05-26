@@ -27,6 +27,15 @@ class BrandController extends Controller
       return view('admin.edit_brand', $data);
     }
 
+    public function del_my_brand($id){
+
+      DB::table('brands')
+      ->where('id', $id)
+      ->delete();
+
+      return redirect(url('admin/brand'))->with('del_success','คุณทำการแก้ไขอสังหา สำเร็จ');
+    }
+
     public function edit_my_brand(Request $request){
 
       $image = $request->file('file');

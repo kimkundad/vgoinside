@@ -236,6 +236,12 @@ $(document).ready(function() {
 
 @endif
 
+@if ($message = Session::get('del_success'))
+
+    swal("ระบบทำการลบข้อมูลให้เรียบร้อยแล้ว");
+
+@endif
+
 
 
 </script>

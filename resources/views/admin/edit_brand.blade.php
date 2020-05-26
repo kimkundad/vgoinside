@@ -185,6 +185,9 @@
 
                                 <div class="theme-account-preferences-item-change-actions">
                                   <a class="btn btn-sm btn-primary" id="btnSendData">บันทึกข้อมูล</a>
+                                  @if(Auth::user()->hasRole('manager') == true)
+                                  <a href="{{ url('api/del_my_brand/'.$objs->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger " style="float:right" >ลบ</a>
+                                  @endif
                                 </div>
                               </div>
                               </form>
