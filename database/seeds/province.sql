@@ -1,44 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: May 26, 2020 at 06:50 AM
--- Server version: 10.1.39-MariaDB
--- PHP Version: 7.3.5
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `shop`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `province`
---
-
-CREATE TABLE `province` (
-  `PROVINCE_ID` int(5) NOT NULL,
-  `PROVINCE_CODE` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
-  `PROVINCE_NAME` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `GEO_ID` int(5) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `province`
---
-
 INSERT INTO `province` (`PROVINCE_ID`, `PROVINCE_CODE`, `PROVINCE_NAME`, `GEO_ID`) VALUES
 (1, '10', 'กรุงเทพมหานคร   ', 2),
 (2, '11', 'สมุทรปราการ   ', 2),
@@ -117,28 +76,3 @@ INSERT INTO `province` (`PROVINCE_ID`, `PROVINCE_CODE`, `PROVINCE_NAME`, `GEO_ID
 (75, '95', 'ยะลา   ', 6),
 (76, '96', 'นราธิวาส   ', 6),
 (77, '97', 'บึงกาฬ', 3);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `province`
---
-ALTER TABLE `province`
-  ADD PRIMARY KEY (`PROVINCE_ID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `province`
---
-ALTER TABLE `province`
-  MODIFY `PROVINCE_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
