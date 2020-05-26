@@ -186,7 +186,8 @@
                                 {{ $u->phone }}
                               </td>
                               <td>
-                                {{ $u->roles[0]->name }}
+
+                              
                               </td>
                               <td>
                                 {{ $u->created_at }}
