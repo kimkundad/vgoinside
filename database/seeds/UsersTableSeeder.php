@@ -19,7 +19,8 @@ class UsersTableSeeder extends Seeder
               'code_user' => 'UD123456',
               'avatar' => '1483537975.png',
               'provider' => 'email',
-              'is_admin' => 1
+              'is_admin' => 1,
+              'brand_id' => 1
             ]
         ]);
     }
