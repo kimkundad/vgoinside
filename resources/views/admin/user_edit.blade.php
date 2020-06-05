@@ -148,7 +148,7 @@
 
 
               <div class="theme-account-preferences-item">
-                  <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">ข้อมูลของ <b>{{ $objs->name }}</b></h5>
+                  <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">ข้อมูลของ <b></b></h5>
 
                   <div class=" _pb-0">
 
