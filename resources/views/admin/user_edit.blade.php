@@ -163,7 +163,7 @@
                               <div class="" >
                                 <p class="theme-account-preferences-item-change-description">ชื่อผู้ใช้งาน </p>
                                 <div class="form-group theme-account-preferences-item-change-form">
-                                  <input class="form-control" type="text" name="name" id="name" value="{{ $objs->name }}">
+                                  <input class="form-control" type="text" name="name" id="name" value="">
                                   <input class="form-control" type="hidden" name="user_id" value="{{ $objs->id }}">
                                 </div>
                                 <br />
