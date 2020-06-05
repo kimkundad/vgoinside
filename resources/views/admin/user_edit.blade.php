@@ -136,7 +136,7 @@
                         <a href="{{ url('/admin/user') }}">จัดการรายชื่อ</a></p>
                   </li>
                   <li>
-                    <p class="theme-breadcrumbs-item-title active">{{ $objs->name }}</p>
+                    <p class="theme-breadcrumbs-item-title active"></p>
                   </li>
                 </ul>
               </div>
