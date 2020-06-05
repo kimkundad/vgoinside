@@ -280,7 +280,6 @@ class studentController extends Controller
 
       $objs = DB::table('users')
           ->where('id', $id)
-          ->where('brand_id', Auth::user()->brand_id)
           ->first();
 
           $role = DB::table('role_user')

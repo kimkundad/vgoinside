@@ -136,7 +136,7 @@
                         <a href="{{ url('/admin/user') }}">จัดการรายชื่อ</a></p>
                   </li>
                   <li>
-                    <p class="theme-breadcrumbs-item-title active"></p>
+                    <p class="theme-breadcrumbs-item-title active">{{ $objs->name }}</p>
                   </li>
                 </ul>
               </div>
@@ -148,7 +148,7 @@
 
 
               <div class="theme-account-preferences-item">
-                  <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">ข้อมูลของ <b></b></h5>
+                  <h5 class="theme-search-results-item-title theme-search-results-item-title-lg">ข้อมูลของ <b>{{ $objs->name }}</b></h5>
 
                   <div class=" _pb-0">
 
@@ -163,7 +163,7 @@
                               <div class="" >
                                 <p class="theme-account-preferences-item-change-description">ชื่อผู้ใช้งาน </p>
                                 <div class="form-group theme-account-preferences-item-change-form">
-                                  <input class="form-control" type="text" name="name" id="name" value="">
+                                  <input class="form-control" type="text" name="name" id="name" value="{{ $objs->name }}">
                                   <input class="form-control" type="hidden" name="user_id" value="{{ $objs->id }}">
                                 </div>
                                 <br />
